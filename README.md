@@ -6,25 +6,24 @@ and a separated subsystem structure, allowing for code separation
 along with independent work on different subsystems by multiple 
 programmers simultaneously.
 
-Designed for team 3044 but for use by anyone just give us a mention.
-
 ## STEPS
+1: change team number in "Robot.java" and "wpilib_preferences.json"
 
-1: update the vendor deps to the newest version using online update
+2: update the vendor deps to the newest version using online update
 
-2: update gradle
+3: update gradle
 
-3: check for depreciations caused by updated libraries
+4: check for depreciations caused by updated libraries
 
-4: check the values in robot_config_value.conf to make sure the
+5: check the values in robot_config_value.conf to make sure the
    IP address, device IDs, & inversions for drive train motors are
    correctly set up for your robot
 
-5: place robot_config_values.conf in "/etc/" by using winSCP, 
+6: place robot_config_values.conf in "/etc/" by using winSCP, 
    navigating to the top level of the file structure "/", and
    then clicking on "etc"
 
-6: give your drivetrain a test
+7: give your drivetrain a test
 
 ## NOTES
 

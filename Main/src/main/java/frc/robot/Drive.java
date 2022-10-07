@@ -5,6 +5,9 @@ import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 
 public class Drive extends RobotSubsystems
 {
+  /*Use of TalonSRXs over CAN as motor controllers is only an example and can easily be switched out for any 
+  other motor controller or switched over to PWM. */
+
   //gets drivetrain talon IDs from robot_config_values.conf
   static int leftFrontCanID = Integer.parseInt(
     Import.RobotConfiguration.getProperty("drive_left_front_canid", "1"));

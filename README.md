@@ -1,4 +1,4 @@
-# 3044_framework
+# Timed-Java-Framework
 
 A starting Java framework for FRC robots, allowing for easy value 
 changes without rebuilding code through a conf file and WinSCP

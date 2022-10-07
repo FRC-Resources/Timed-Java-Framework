@@ -1,0 +1,9 @@
+Files placed in this directory will be deployed to the RoboRIO into the
+'deploy' directory in the home folder. Use the 'Filesystem.getDeployDirectory' wpilib function
+to get a proper path relative to the deploy directory.
+
+An easy place to put config files but we do not want to put ours here as it will get overwritten
+every time we deply new code as such we keep the config file outside of all the code and in the
+main linux file system in /etc/ which can be located by going to the head of the file system and
+then selecting etc, the config file will be located in that folder under the name 
+robot_config_values.conf

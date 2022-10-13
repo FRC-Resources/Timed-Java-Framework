@@ -5,44 +5,18 @@ import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 
 public class Drive extends RobotSubsystems
 {
-  /*Use of TalonSRXs over CAN as motor controllers is only an example and can easily be switched out for any 
-  other motor controller or switched over to PWM. */
-
   //gets drivetrain talon IDs from robot_config_values.conf
-  static int leftFrontCanID = Integer.parseInt(
-    Import.RobotConfiguration.getProperty("drive_left_front_canid", "1"));
-  static int rightFrontCanID = Integer.parseInt(
-    Import.RobotConfiguration.getProperty("drive_right_front_canid", "2"));
-  static int leftBackCanID = Integer.parseInt(
-    Import.RobotConfiguration.getProperty("drive_left_back_canid", "3"));
-  static int rightBackCanID = Integer.parseInt(
-    Import.RobotConfiguration.getProperty("drive_right_back_canid", "4"));
-
-  public static TalonSRX leftFront = new TalonSRX(leftFrontCanID);
-  public static TalonSRX rightFront = new TalonSRX(rightFrontCanID);
-  public static TalonSRX leftBack = new TalonSRX(leftBackCanID);
-  public static TalonSRX rightBack = new TalonSRX(rightBackCanID);
-
-  //checks if drivetrain motors motors should be inverted
-  boolean isLeftFrontInverted = Boolean.parseBoolean(
-    Import.RobotConfiguration.getProperty("is_drive_left_front_inverted", "false"));
-  boolean isRightFrontInverted = Boolean.parseBoolean(
-    Import.RobotConfiguration.getProperty("is_drive_right_front_inverted", "false"));
-  boolean isLeftBackInverted = Boolean.parseBoolean(
-    Import.RobotConfiguration.getProperty("is_drive_left_back_inverted", "false"));
-  boolean isRightBackInverted = Boolean.parseBoolean(
-    Import.RobotConfiguration.getProperty("is_drive_right_back_inverted", "false"));
-
-  //gets the deadband value from robot_config_values.conf
-  public static float deadbandValue = Float.parseFloat(
-    Import.RobotConfiguration.getProperty("deadband_value", "0.15"));
+  public static TalonSRX leftFront = new TalonSRX(Import.leftFrontCanID);
+  public static TalonSRX rightFront = new TalonSRX(Import.rightFrontCanID);
+  public static TalonSRX leftBack = new TalonSRX(Import.leftBackCanID);
+  public static TalonSRX rightBack = new TalonSRX(Import.rightBackCanID);
 
   public void robotInit() {
     //sets drivetrain motor inversion based on robot_config_values.conf
-    leftFront.setInverted(isLeftFrontInverted);
-    rightFront.setInverted(isRightFrontInverted);
-    leftBack.setInverted(isLeftBackInverted);
-    rightBack.setInverted(isRightBackInverted);
+    leftFront.setInverted(Import.isLeftFrontInverted);
+    rightFront.setInverted(Import.isRightFrontInverted);
+    leftBack.setInverted(Import.isLeftBackInverted);
+    rightBack.setInverted(Import.isRightBackInverted);
 
     //set rear motors to follow front set for tank drive
     leftBack.follow(leftFront);
@@ -62,12 +36,11 @@ public class Drive extends RobotSubsystems
 
   public void autonomousPeriodic() {}
 
-  public void testInit() {
-  }
+  public void testInit() {}
 
   public double deadband(double input) {
     double output;
-    if(Math.abs(input) < deadbandValue) {
+    if(Math.abs(input) < Import.deadbandValue) {
       output = 0;
     } else {
       output = input;

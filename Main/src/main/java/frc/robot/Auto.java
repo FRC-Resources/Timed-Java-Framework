@@ -36,8 +36,6 @@ public class Auto extends RobotSubsystems{
     /** This autonomous (along with the chooser code above) shows how to select between different
     * autonomous modes using the dashboard. The sendable chooser code works with the Java
      * SmartDashboard.*/
-
-    /** TO DO find why always coming up null likely an issue on smart dashboard */
     public void autonomousPeriodic() {
       if(m_autoSelected == null)  {
         //auto if none is selected or selection not found

@@ -5,6 +5,8 @@ import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 
 public class Drive extends RobotSubsystems
 {
+  //This can easily be swapped to PWM or any other motor controller and
+  //is only here as an example
   //gets drivetrain talon IDs from robot_config_values.conf
   public static TalonSRX leftFront = new TalonSRX(Import.leftFrontCanID);
   public static TalonSRX rightFront = new TalonSRX(Import.rightFrontCanID);

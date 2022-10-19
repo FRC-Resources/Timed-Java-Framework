@@ -26,8 +26,9 @@ programmers simultaneously.
 7: give your drivetrain a test
 
 ## NOTES
-Not finished!! an official package will be published as version 1.0.0
-when we are sure the framework is stable. late Oct. to early Nov.
+This should be good to go if you have any questions contact us and
+please report any issues on GitHub also 7718 if you use this Matt
+can reach me and has my number
 
 This framework is designed for java. It is set up to function with
 smartdashboard within Display.java but this can be easily swapped

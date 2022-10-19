@@ -22,6 +22,8 @@ public class Import extends RobotSubsystems {
 
     public static float deadbandValue;
 
+    public static int teamNumber;
+
     public static void importConfig() {
         try {
             FileInputStream input = new FileInputStream(CONFIG_PATH);
@@ -36,6 +38,9 @@ public class Import extends RobotSubsystems {
     //imports config file on robotInit
     public void robotInit() {
         importConfig();
+        teamNumber = Integer.parseInt(
+        RobotConfiguration.getProperty("TeamNumber", "3044"));
+
         leftFrontCanID = Integer.parseInt(
         RobotConfiguration.getProperty("drive_left_front_canid", "1"));
         rightFrontCanID = Integer.parseInt(

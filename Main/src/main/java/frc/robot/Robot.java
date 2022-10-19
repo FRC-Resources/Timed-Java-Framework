@@ -12,8 +12,7 @@ import edu.wpi.first.wpilibj.XboxController;
  * the package after creating this project, you must also update the build.gradle file in the
  * project.*/
 public class Robot extends TimedRobot {
-  //change to match your team number
-  static final int TEAM_NUMBER=3044;
+ 
   
   /** To call on these type Robot.controller# 
   Works for xbox 360 & one controllers*/
@@ -25,6 +24,9 @@ public class Robot extends TimedRobot {
   public static Drive Drive;
   public static Auto Auto;
   public static Import Import;
+
+   //change to match your team number
+  static final int TEAM_NUMBER=frc.robot.Import.teamNumber;
   
   // This method should (a) initalize the Subsystems collection and 
   // (b) call robotInit on all Subsystem modules
@@ -43,7 +45,6 @@ public class Robot extends TimedRobot {
     Robot.Drive.robotInit();
     Robot.Auto.robotInit();
     Robot.Display.robotInit();
-    //only needed here to import the files? check if needed everywhere
     Robot.Import.robotInit();
   }
 
@@ -98,8 +99,6 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during test mode. */
   @Override
   public void testPeriodic() {
-    System.out.println("test");
-    System.out.println(leftFrontCanID);
   }
   
   /** This function is called once when the robot is disabled. */
